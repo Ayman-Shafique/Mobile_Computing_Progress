@@ -19,14 +19,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button1 = findViewById(R.id.btn_1);
+        Button2 = findViewById(R.id.btn_2);
         myLinearLayout = findViewById(R.id.linearLayout);
 
         Button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment1 frag1 = new Fragment1();
+                Fragment1 fragment = new Fragment1();
                 FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.linearLayout, frag1);
+                transaction.replace(R.id.linearLayout, fragment);
+                transaction.commit();
+            }
+        });
+        Button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment2 fragment = new Fragment2();
+                FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.linearLayout, fragment);
                 transaction.commit();
             }
         });
